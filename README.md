@@ -3,8 +3,7 @@
 You can find the related blogpost to this repository here: _TODO (add hyperlink when blog is published)_
 
 > [!WARNING]
-
-_This example is for experimental purposes only and is not production ready. The deployment of this sample **can incur costs**. Please ensure to remove infrastructure via the provided instructions at the end when not needed anymore._
+>**_This example is for experimental purposes only and is not production ready. The deployment of this sample **can incur costs**. Please ensure to remove infrastructure via the provided instructions at the end when not needed anymore._**
 
 ## Improve Public Speaking Skills Using a GenAI Based Virtual Assistant With Amazon Bedrock
 Public speaking is a critical skill in today's world, whether it's for professional presentations, academic settings, or personal growth. However, many individuals struggle with anxiety, lack of confidence, and ineffective communication during public speaking engagements. Hiring a public speaking coach is expensive and limited in availability. Now, with the advent of Large Language Models (LLMs), a Generative AI-powered virtual assistant can be used by individuals from diverse backgrounds and locations as well as organizations of any size to benefit from real-time analysis of speech, identification of areas for improvement, and suggestions for enhancing the speech delivery.
