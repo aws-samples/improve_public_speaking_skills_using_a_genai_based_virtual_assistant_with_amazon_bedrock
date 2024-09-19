@@ -70,6 +70,11 @@ For implementing the Public Speaking Mentor AI Assistant solution, you should ha
 3. Local desktop environment with AWS CLI (Command Line Interface), latest version of [AWS CDK](https://aws.amazon.com/cdk/) (2.159.0 or above), Python 3.8 or above, and Git installed.
 4. AWS CLI setup with necessary AWS credentials and desired AWS region.
 
+> [!IMPORTANT] 
+> Please ensure you have the latest CDK installed (v2.159.0 or above) as support for Anthropic Claude 3.5 Sonnet CDK construct is not available in earlier versions.
+
+
+
 ### Deploy the Public Speaking Mentor AI Assistant solution
 
 Complete the following steps to deploy the Public Speaking Mentor AI Assistant AWS infrastructure:
