@@ -1,0 +1,6 @@
+aws-cdk-lib==2.159.0
+constructs>=10.0.0,<11.0.0
+asyncio
+boto3
+streamlit>=1.25.0
+streamlit-cognito-auth
