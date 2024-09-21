@@ -81,32 +81,39 @@ Complete the following steps to deploy the Public Speaking Mentor AI Assistant A
 
 
 1. Clone the repository to your local disk environment with the following command:
-
-> git clone https://github.com/aws-samples/improve_public_speaking_skills_using_a_genai_based_virtual_assistant_with_amazon_bedrock.git
+```
+git clone https://github.com/aws-samples/improve_public_speaking_skills_using_a_genai_based_virtual_assistant_with_amazon_bedrock.git
+```
 
 2. Change the directory to the cloned repository and `app` directory inside it.
-
-> cd improve_public_speaking_skills_using_a_genai_based_virtual_assistant_with_amazon_bedrock/app
+```
+cd improve_public_speaking_skills_using_a_genai_based_virtual_assistant_with_amazon_bedrock/app
+```
 
 3. Create a python virtual environment for infra:
-
-> python3 -m venv .venv
+```
+python3 -m venv .venv
+```
 
 4. Activate your virtual environment:
-
-> source .venv/bin/activate
+```
+source .venv/bin/activate
+```
 
 5. Install the required dependencies
-
-> pip install -r requirements.txt
+```
+pip install -r requirements.txt
+```
 
 6. (Optional) Synthesize the AWS CloudFormation template using AWS CDK (Cloud Development Kit) for Python.
-
-> cdk synth
+```
+cdk synth
+```
 
 7. Deploy AWS CloudFormation template in your AWS account and selected region
-
-> cdk deploy
+```
+cdk deploy
+```
 
 Once the CDK is deployed successfully, follow the steps below to create a Cognito user.
 
@@ -134,12 +141,14 @@ Complete the following steps to subscribe to SNS topic for receiving speech reco
 Complete the following steps to run Streamlit application for accessing Public Speaking Mentor AI Assistant web portal:
 
 1. Change the directory to `webapp` inside `app` directory.
-
-> cd webapp
+```
+cd webapp
+```
 
 2. Launch the streamlit server on port 8080.
-
-> streamlit run webapp.py --server.port 8080
+```
+streamlit run webapp.py --server.port 8080
+```
 
 3. Make note of Streamlit application URL for further use. Depending on your environment setup, you could choose one of the URLs out of three (Local, Network or External) provided by Streamlit server’s running process.
 
@@ -179,7 +188,9 @@ Complete the following steps to clean up your resources:
 1. Terminate your Streamlit application server process running in your environment using Ctrl+C operation.
 2. Change to `app` directory in your repository.
 3. Destroy AWS CloudFormation using AWS CDK for Python.
-> cdk destroy
+```
+cdk destroy
+```
 
 ## Some limitations
 
