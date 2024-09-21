@@ -110,6 +110,12 @@ pip install -r requirements.txt
 cdk synth
 ```
 
+>[!TIP]
+You may need to perform a one time cdk bootstraping using the following command. See [CDK Bootstrapping](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) for more details.
+```bash
+cdk bootstrap aws://<ACCOUNT-NUMBER-1>/<REGION-1>
+```
+
 7. Deploy AWS CloudFormation template in your AWS account and selected region
 ```
 cdk deploy
