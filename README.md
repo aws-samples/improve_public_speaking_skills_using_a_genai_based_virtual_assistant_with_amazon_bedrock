@@ -1,6 +1,6 @@
 # public-speaking-mentor-ai-assistant
 
-You can find the related blogpost to this repository here: _TODO (add hyperlink when blog is published)_
+You can find the related blogpost to this repository here: [Improve public speaking skills using a generative AI-based virtual assistant with Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/improve-public-speaking-skills-using-a-generative-ai-based-virtual-assistant-with-amazon-bedrock/)
 
 > [!WARNING]
 >**_This example is for experimental purposes only and is not production ready. The deployment of this sample **can incur costs**. Please ensure to remove infrastructure via the provided instructions at the end when not needed anymore._**
