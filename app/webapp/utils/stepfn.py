@@ -90,7 +90,7 @@ def get_task_status(event_type):
         or event_type == "TaskFailed"
         or event_type == "TaskTimedOut"
     ):
-        return ":bangbang:"
+        return ":no_entry:"
     elif event_type == "TaskSucceeded" or event_type == "WaitStateExited":
         return ":white_check_mark:"
     raise Exception(f"Unknown event type {event_type}")
@@ -100,7 +100,7 @@ def get_workflow_status_icon(status):
     if status == "RUNNING":
         return ":arrows_counterclockwise:"
     elif status == "FAILED" or status == "TIMED_OUT" or status == "ABORTED":
-        return ":bangbang:"
+        return ":no_entry:"
     elif status == "SUCCEEDED":
         return ":white_check_mark:"
     raise Exception(f"Unknown event type {status}")

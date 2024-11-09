@@ -113,7 +113,7 @@ with demo_col:
         # File type validation
         if uploaded_file.type.startswith("audio/") or uploaded_file.type.startswith("video/"):
             # File size validation
-            if uploaded_file.size <= 10 * 1024 * 1024:  # 10MB limit
+            if uploaded_file.size <= 200 * 1024 * 1024:  # 200MB limit
                 # Submit button
                 submitted = st.button("Upload File")
                 if submitted:
