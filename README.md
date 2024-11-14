@@ -39,6 +39,10 @@ Let’s explore the architecture step by step:
 4. Amazon EventBridge invokes the AWS Step Functions workflow based on this event.
 5. The AWS Step Functions workflow utilizes AWS SDK integrations to invoke Amazon Transcribe and initiates a StartTranscriptionJob, passing the S3 bucket, prefix path, and object name in the MediaFileUri parameter. The workflow waits for the transcription job to complete and saves the transcript in another S3 bucket prefix path.
 6. The AWS Step Functions workflow then utilizes the optimized integrations to invoke Amazon Bedrock's InvokeModel API, which specifies the Anthropic Claude 3.5 Sonnet model, the system prompt, max tokens, and the transcribed speech text as inputs to the API. The system prompt instructs Claude to provide suggestions on how to improve the speech by identifying incorrect grammar, repetitions of words or content, use of filler words, and other recommendations.
+
+> [!IMPORTANT] 
+To avoid running into the StepFunctions [payload size limitation of 256KB](https://docs.aws.amazon.com/step-functions/latest/dg/service-quotas.html#service-limits-task-executions), we use AWS Lambda optimized integrations in Step Functions to save the payload for Bedrock inferrence parameters in an S3 bucket. The AWS Lambda function creates the required payloads and saves it to a given S3 bucket. Step Functions then uses the S3 bucket path in the Bedrock InvokeModel API's `input` parameter  - this optional field is specific to [Amazon Bedrock optimized integration with Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/connect-bedrock.html#connect-bedrock-custom-apis). This allows us to pass payloads greater than 256 KB.
+
 7. After receiving a response from Amazon Bedrock, the AWS Step Functions workflow utilizes prompt chaining to craft another input for Amazon Bedrock, incorporating the previous transcribed speech, the model's previous response, and requesting the model to provide suggestions for rewriting the speech.
 8. Finally, the workflow combines these outputs from Amazon Bedrock, crafts a message which is displayed on the logged-in user's web page.
 9. At the end, the Step Functions workflow invokes the SNS Publish optimized integration to send an email to the user with the Bedrock-generated message.
@@ -59,6 +63,7 @@ For implementing the Public Speaking Mentor AI Assistant solution, you should ha
     * Amazon Bedrock
     * Amazon Transcribe
     * AWS Step Functions
+    * AWS Lambda
     * Amazon EventBridge
     * Amazon Cognito
     * Amazon SNS
