@@ -2,6 +2,10 @@
 name: Shellcheck Scan
 
 on:
+  push:
+    # only trigger on branches, not on tags
+    branches: 
+      - '**'
   pull_request:
     branches:
       - '*'

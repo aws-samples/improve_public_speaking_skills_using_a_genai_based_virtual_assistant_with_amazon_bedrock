@@ -2,10 +2,19 @@
 name: Python Quality Check
 
 on:
+  push:
+    # only trigger on branches, not on tags
+    branches: 
+      - '**'
   pull_request:
     branches:
       - '*'
-
+  workflow_dispatch:
+      inputs:
+        name:
+          description: "test"
+          default: "test"
+          
 jobs:
 
   pylint-scan:
