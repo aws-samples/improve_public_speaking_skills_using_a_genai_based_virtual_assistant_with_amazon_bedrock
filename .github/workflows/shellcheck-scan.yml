@@ -5,6 +5,11 @@ on:
   pull_request:
     branches:
       - '*'
+  workflow_dispatch:
+      inputs:
+        name:
+          description: "test"
+          default: "test"
 
 jobs:
 
