@@ -3,4 +3,4 @@ constructs>=10.0.0,<11.0.0
 asyncio
 boto3
 streamlit>=1.25.0
-streamlit-cognito-auth
+streamlit-cognito-auth==1.3.1
