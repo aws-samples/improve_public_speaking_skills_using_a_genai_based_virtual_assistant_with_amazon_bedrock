@@ -45,4 +45,4 @@ jobs:
       - name: Check for duplicate dependencies
         run: |
           pip install reqs-check
-          reqs-check check --duplicates requirements.txt
+          reqs-check check --duplicates app/requirements.txt
