@@ -3,10 +3,10 @@ name: Dependency Security Scan
 on:
   push:
     paths:
-      - 'requirements.txt'
+      - 'app/requirements.txt'
   pull_request:
     paths:
-      - 'requirements.txt'
+      - 'app/requirements.txt'
   schedule:
     - cron: '0 0 * * 0'  # Run weekly
   workflow_dispatch:
