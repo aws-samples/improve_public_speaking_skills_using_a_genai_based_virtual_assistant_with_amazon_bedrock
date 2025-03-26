@@ -37,6 +37,7 @@ def upload_to_s3(file):
         s3_client.upload_fileobj(file, bucket_name, key)
         return True
     except Exception as e:
+        print(f"Error uploading payload to S3: {e}")
         raise
 
 # Methods for displaying the state machine's execution history

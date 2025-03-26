@@ -1,10 +1,11 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
 
-import streamlit as st
 import uuid
 import json
 import time
+import streamlit as st
+from botocore.exceptions import ClientError
 
 import utils.stepfn as stepfn
 from utils.auth import Auth
@@ -22,7 +23,11 @@ secrets_manager_id = Config.SECRETS_MANAGER_ID
 authenticator = Auth.get_authenticator(secrets_manager_id)
 
 # Authenticate user, and stop here if not logged in
-is_logged_in = authenticator.login()
+try:
+    is_logged_in = authenticator.login()
+except ClientError as e:
+    st.error("Invalid username or password")
+    st.stop()
 if not is_logged_in:
     st.stop()
 
