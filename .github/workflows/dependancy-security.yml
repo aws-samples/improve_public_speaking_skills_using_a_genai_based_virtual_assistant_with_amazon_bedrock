@@ -1,0 +1,42 @@
+name: Dependency Security Scan
+
+on:
+  push:
+    paths:
+      - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'requirements.txt'
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly
+
+jobs:
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install safety and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install safety
+          pip install -r requirements.txt
+
+      - name: Run safety check
+        run: safety check -r requirements.txt
+
+      - name: Install and run pip-audit
+        run: |
+          pip install pip-audit
+          pip-audit -r requirements.txt
+
+      - name: Check for duplicate dependencies
+        run: |
+          pip install reqs-check
+          reqs-check --find-duplicates requirements.txt
