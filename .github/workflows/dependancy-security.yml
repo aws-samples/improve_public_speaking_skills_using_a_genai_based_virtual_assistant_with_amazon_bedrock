@@ -9,6 +9,12 @@ on:
       - 'requirements.txt'
   schedule:
     - cron: '0 0 * * 0'  # Run weekly
+  workflow_dispatch:
+      inputs:
+        name:
+          description: "test"
+          default: "test"
+ 
 
 jobs:
   security-check:
@@ -39,4 +45,4 @@ jobs:
       - name: Check for duplicate dependencies
         run: |
           pip install reqs-check
-          reqs-check --find-duplicates requirements.txt
+          reqs-check check --duplicates requirements.txt
