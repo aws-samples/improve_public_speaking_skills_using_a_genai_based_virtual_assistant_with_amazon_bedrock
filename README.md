@@ -161,6 +161,12 @@ cd webapp
 streamlit run webapp.py --server.port 8080
 ```
 
+> [!IMPORTANT] 
+> Please note that when using the above command, the web server will bind to all ports and be accessible to users on the local network. For testing and to minimise the risk of exposing the application to untrusted networks, it should instead be started by default on the loopback adapter only. You can add the `--server.address localhost` option when launching the streamlit server to run it only on localhost.
+```
+streamlit run webapp.py --server.port 8080 --server.address localhost
+```
+
 3. Make note of Streamlit application URL for further use. Depending on your environment setup, you could choose one of the URLs out of three (Local, Network or External) provided by Streamlit server’s running process.
 
 `Note: Allow inbound traffic on port 8080`
